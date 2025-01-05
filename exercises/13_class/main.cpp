@@ -13,12 +13,13 @@ class Fibonacci {
     int cached;
 
 public:
-    // TODO: 实现构造器
-    // Fibonacci()
+    // 构造器的初始化列表
+    // READ: 初始化列表 <https://zh.cppreference.com/w/cpp/language/initializer_list>
+    Fibonacci() : cache{0, 1}, cached(2) {}
 
     // TODO: 实现正确的缓存优化斐波那契计算
     size_t get(int i) {
-        for (; false; ++cached) {
+        for (; cached <= i; ++cached) {
             cache[cached] = cache[cached - 1] + cache[cached - 2];
         }
         return cache[i];
